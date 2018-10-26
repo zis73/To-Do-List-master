@@ -12,7 +12,7 @@ struct ToDo {
     var title: String
     var isComplete: Bool
     var dueDate: Date
-    var notes: String
+    var notes: String?
     
     static func loadToDos() -> [ToDo]? {
         return nil
@@ -26,4 +26,10 @@ struct ToDo {
             ToDo(title: "Помыть машину", isComplete: false, dueDate: Date(), notes: "Заметка 4"),
         ]
     }
+    static let dueDateFormatter: DateFormatter = {
+       let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }()
 }
